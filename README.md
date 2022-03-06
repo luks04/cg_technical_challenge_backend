@@ -8,18 +8,18 @@ It contains a Flask app which resolve the following objective:
 > rate of USD to MXN from three different sources in the same endpoint.
 > The response format should be something like the following:
 
-```json
-"rates": {
-    "provider_1": {
-        "last_updated": "2018-04-22T18:25:43.511Z",
-        "value": 20.4722
-    },
-    "provider_2_variant_1": {
-        "last_updated": "2018-04-23T18:25:43.511Z",
-        "value": 20.5281
-    }
-}
-```
+> ```json
+> "rates": {
+>     "provider_1": {
+>         "last_updated": "2018-04-22T18:25:43.511Z",
+>         "value": 20.4722
+>     },
+>     "provider_2_variant_1": {
+>         "last_updated": "2018-04-23T18:25:43.511Z",
+>         "value": 20.5281
+>     }
+> }
+> ```
 
 > Exchange rate sources:
 >
