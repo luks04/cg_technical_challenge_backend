@@ -27,6 +27,11 @@ It contains a Flask app which resolve the following objective:
 > - [Fixer](https://fixer.io/) - Well documented API in JSON format
 > - [Banxico](https://www.banxico.org.mx/SieAPIRest/service/v1/doc/consultaDatosSerieRango) - Service SF43718. API returns XML.
 
+> Extra requirements:
+>
+> - API should be accessed with an Application Token.
+> - API should have a rate limit per user.
+
 ## Docker Deployment in Heroku
 
 Heroku CLI needed.
