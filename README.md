@@ -1,6 +1,6 @@
 # Credit Group Technical Challenge - Backend
 
-See Backend repo at **https://github.com/luks04/cg_technical_challenge_frontend.git**
+See Frontend repo at **https://github.com/luks04/cg_technical_challenge_frontend.git**
 
 ## Flask app
 
