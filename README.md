@@ -34,7 +34,7 @@ It contains a Flask app which resolve the following objective:
 > - API should be accessed with an Application Token.
 > - API should have a rate limit per user.
 
-## Valid users
+## Fake users
 
 | Username | Password |
 | -------- | :------: |
