@@ -1,6 +1,11 @@
+__author__ = "Lucas A. Patino"
+__version__ = "1.0.0"
+__mantainer__ = "Lucas A. Patino"
+
 import os
 import json
 from flask import Flask
+from flask import Response
 from flask import request
 from flask import jsonify
 from flask_cors import CORS
@@ -9,6 +14,7 @@ from flask_jwt_extended import create_access_token
 from dotenv import load_dotenv
 from http import HTTPStatus
 from models.User import User
+from modules.currency import currency
 from shared.constants import *
 
 # Load .env file ENV variables
@@ -16,6 +22,7 @@ load_dotenv()
 
 # Initial configuration
 app = Flask(__name__)
+app.register_blueprint(currency)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config["JWTSECRETKEY"] = "secret"
 jwt = JWTManager(app)
@@ -28,6 +35,7 @@ CORS(app, resources = {r"/api/app/*": {
 
 
 ########################### AUTHENTICATION AREA START ###########################
+
 def valid_fake_username_and_password(user: User) -> bool:
     """Simulate credentials verification.
 
@@ -43,7 +51,7 @@ def valid_fake_username_and_password(user: User) -> bool:
     return fake_verifation
 
 @app.route("/api/app/login", methods = ["POST"])
-def api_app_login():
+def api_app_login() -> Response:
     """If the user exists, it returns a valid access_token.
     Otherwise, it returns an error message.
     
