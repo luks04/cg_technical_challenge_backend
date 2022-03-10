@@ -1,5 +1,5 @@
 __author__ = "Lucas A. Patino"
-__version__ = "1.0.0"
+__version__ = "1.0.1"
 __mantainer__ = "Lucas A. Patino"
 
 import os
@@ -110,4 +110,4 @@ def api_app_login() -> Response:
 ########################### AUTHENTICATION AREA END ###########################
 
 if __name__ == '__main__':
-    app.run(host = '0.0.0.0', port = 8080, debug = True)
+    app.run(host = '0.0.0.0', port = 8080, debug = False)
