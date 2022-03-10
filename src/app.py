@@ -11,6 +11,8 @@ from flask import jsonify
 from flask_cors import CORS
 from flask_jwt_extended import JWTManager
 from flask_jwt_extended import create_access_token
+from flask_limiter import Limiter
+from flask_limiter.util import get_remote_address
 from dotenv import load_dotenv
 from http import HTTPStatus
 from models.User import User
@@ -26,6 +28,13 @@ app.register_blueprint(currency)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config["JWTSECRETKEY"] = "secret"
 jwt = JWTManager(app)
+
+# Limit rate configuration
+limiter = Limiter(
+    app,
+    key_func = get_remote_address,
+    default_limits = ["2 per minute"]
+)
 
 # CORS configuration
 CORS(app, resources = {r"/api/app/*": {
