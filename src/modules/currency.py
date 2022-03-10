@@ -72,7 +72,7 @@ def api_currency_get_current_exchange_rate() -> Response:
         rates_data.append(fixer_data.get_service_response())
         rates_data.append(banxico_data.get_service_response())
         # Create the response
-        response = jsonify({'msg': 'Current exchange rate of USD to MXN retrieved successfully.', 
+        response = jsonify({'msg': GET_CURRENT_EXCHANGE_RATES_SUCCESS, 
                             'details': {'max_requests': jwt_token["max_requests"]},
                             'rates': rates_data
                             })

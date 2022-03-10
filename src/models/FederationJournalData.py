@@ -92,16 +92,22 @@ class FederationJournalData(Rate):
                 # Get latest data
                 current_rate = serialized_df[serialized_df['Fecha'] == serialized_df['Fecha'].max()]
                 details = dict(
-                    msg = "Petición exitosa a fuente externa"
+                    msg = REQUEST_3RD_PARTY_SOURCE_SUCCESS
                     )
                 self.details = details
                 self.date = current_rate.iloc[0]['Fecha']
                 self.value = float(current_rate.iloc[0]['Para pagos'])
             else:
                 details = dict(
-                    msg = "Fuente no disponible por el momento"
+                    msg = SOURCE_CURRENTLY_UNAVAILABLE
                 )
                 self.details = details
+        except KeyError as key:
+            print(f"{key} does not exist in the source response. {MAYBE_3RD_PARTY_RESPONSE_HAS_CHANGED_MSG}")
+            details = dict(
+                msg = MAYBE_3RD_PARTY_RESPONSE_HAS_CHANGED_MSG
+                )
+            self.details = details
         except Exception as error:
             print(error)
             details = dict(

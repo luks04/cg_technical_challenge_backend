@@ -43,11 +43,17 @@ class BanxicoData(Rate):
                 self.details = details
             else:
                 details = dict(
-                    msg = "Petición exitosa a fuente externa"
+                    msg = REQUEST_3RD_PARTY_SOURCE_SUCCESS
                     )
                 self.details = details
                 self.date = json_response["bmx"]["series"][0]["datos"][0]["fecha"]
                 self.value = float(json_response["bmx"]["series"][0]["datos"][0]["dato"])
+        except KeyError as key:
+            print(f"{key} does not exist in the source response. {MAYBE_3RD_PARTY_RESPONSE_HAS_CHANGED_MSG}")
+            details = dict(
+                msg = MAYBE_3RD_PARTY_RESPONSE_HAS_CHANGED_MSG
+                )
+            self.details = details
         except Exception as error:
             print(error)
             details = dict(
