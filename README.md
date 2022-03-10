@@ -50,7 +50,7 @@ The Flask app is containerized using Docker, so to deploy the app in a productio
 ```sh
 git clone https://github.com/luks04/cg_technical_challenge_backend.git
 cd cg_technical_challenge_backend
-git checkout develop
+git checkout main
 heroku login
 ```
 
