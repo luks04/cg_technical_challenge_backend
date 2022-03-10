@@ -1,5 +1,5 @@
 # MAX APIs REQUESTS PER USER
-MAX_REQUESTS = 10
+MAX_REQUESTS = "15 per minute"
 
 # API (/api/app/login) RESPONSE CONSTANTS
 AUTH_SUCCESS = 'Authentication successfully'

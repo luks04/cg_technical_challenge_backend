@@ -33,7 +33,7 @@ jwt = JWTManager(app)
 limiter = Limiter(
     app,
     key_func = get_remote_address,
-    default_limits = ["2 per minute"]
+    default_limits = [MAX_REQUESTS]
 )
 
 # CORS configuration
