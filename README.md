@@ -45,7 +45,7 @@ It contains a Flask app which resolve the following objective:
 Heroku CLI needed.
 The Flask app is containerized using Docker, so to deploy the app in a production environment it is recommended to use Gunicorn (see src/Dockerfile).
 
-1. Clone the repo, checkout to the "develop" branch and login into Heroku CLI:
+1. Clone the repo, checkout to the "main" branch and login into Heroku CLI:
 
 ```sh
 git clone https://github.com/luks04/cg_technical_challenge_backend.git
