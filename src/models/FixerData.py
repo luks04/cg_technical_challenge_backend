@@ -5,6 +5,7 @@ __mantainer__ = "Lucas A. Patino"
 import os
 import requests
 from typing import Union
+from shared.Utilities import Utilities
 from shared.constants import *
 from models.Rate import Rate
 
@@ -42,7 +43,8 @@ class FixerData(Rate):
                     msg = REQUEST_3RD_PARTY_SOURCE_SUCCESS
                     )
                 self.details = details
-                self.date = json_response["date"]
+                response_date = json_response["date"]
+                self.date = Utilities.serialize_date_format(response_date, '%Y-%m-%d')
                 self.value = float(json_response["rates"]["USD"])
         except KeyError as key:
             print(f"{key} does not exist in the source response. {MAYBE_3RD_PARTY_RESPONSE_HAS_CHANGED_MSG}")

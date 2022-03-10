@@ -4,6 +4,7 @@ __mantainer__ = "Lucas A. Patino"
 
 import pandas as pd
 import urllib.request as url_request
+from shared.Utilities import Utilities
 from shared.constants import *
 from models.Rate import Rate
 
@@ -95,7 +96,8 @@ class FederationJournalData(Rate):
                     msg = REQUEST_3RD_PARTY_SOURCE_SUCCESS
                     )
                 self.details = details
-                self.date = current_rate.iloc[0]['Fecha']
+                response_date = current_rate.iloc[0]['Fecha']
+                self.date = Utilities.serialize_date_format(response_date, '%d/%m/%Y')
                 self.value = float(current_rate.iloc[0]['Para pagos'])
             else:
                 details = dict(
